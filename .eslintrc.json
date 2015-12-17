@@ -5,5 +5,9 @@
     "env": {
         "jasmine": true
     },
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+        "indent": [2, 4],
+        "no-console": [0]
+    }
 }
