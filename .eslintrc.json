@@ -1,0 +1,9 @@
+{
+    "ecmaFeatures": {
+        "modules": true
+    },
+    "env": {
+        "jasmine": true
+    },
+    "extends": "airbnb"
+}

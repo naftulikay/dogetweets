@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   sudo: yes
+   tasks:
+       - name: install nodesource key
+         apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
+       - name: install nodesource repo
+         apt_repository: repo='deb https://deb.nodesource.com/node_5.x trusty main' state=present
+       - name: install nodejs
+         apt: name=nodejs state=present
+       - name: install build tools
+         apt: name=build-essential state=present
+       - name: npm install
+         command: npm install
+         args:
+             chdir: /vagrant
+             creates: /vagrant/node_modules
+         sudo: no
