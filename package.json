@@ -4,16 +4,18 @@
     "description": "Proxy Service for #doge tweets.",
     "private": true,
     "main": "index.js",
-    "babel": {
-        "presets": ["es2015"]
-    },
     "scripts": {
         "start": "node index.js",
+        "test": "babel-node spec/run-tests.js",
         "test-all": "nsp check && npm-check-updates && npm test && eslint .",
         "lint": "eslint ."
     },
+    "babel": {
+        "presets": ["es2015"]
+    },
     "dependencies": {
         "babel": "6.3.13",
+        "babel-cli": "6.3.13",
         "babel-preset-es2015": "6.3.13",
         "babel-register": "6.3.13",
         "body-parser": "1.14.1",
@@ -26,7 +28,7 @@
         "eslint": "1.10.3",
         "eslint-config-airbnb": "2.1.1",
         "eslint-plugin-react": "3.11.3",
-        "jasmine-es6": "0.0.19",
+        "jasmine": "2.4.1",
         "npm-check-updates": "2.5.4",
         "nsp": "2.1.0"
     }
