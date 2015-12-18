@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link type="text/css" rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <h1>It works.</h1>
+        <div id="tweets-container"></div>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+
+          t._e = [];
+          t.ready = function(f) {
+            t._e.push(f);
+          };
+
+          return t;
+        }(document, "script", "twitter-wjs"));</script>
+        <script>
+            twttr.ready(function() {
+                twttr.widgets.createTweet('676788470124122116', document.getElementById('tweets-container'));
+            });
+        </script>
     </body>
 </html>
