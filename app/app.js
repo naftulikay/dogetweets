@@ -1,31 +1,27 @@
-import bodyParser from 'body-parser';
-import express from 'express';
-import errorHandler from 'errorhandler';
-import http from 'http';
-import morgan from 'morgan';
-import routes from './routes';
+// libraries
+import _ from 'lodash';
+import Bottle from 'bottlejs';
+// local
+import { mergeConfiguration } from './utils/config';
+import Server from './server';
 
-import main from './controllers/main';
+// instantiate bottle instance
+const bottle = new Bottle();
 
-const port = process.env.PORT || 8000;
-const environment = process.env.NODE_ENV || 'dev';
+const configuration = mergeConfiguration(process.env, {
+    HTTP_PORT: 8080,
+    NODE_ENV: 'dev',
+});
 
-const app = express();
+// define configuration options in bottle
+_.forEach(configuration, (value, key) => bottle.value(key, value));
 
-app.MainController = new main.MainController();
+// define bottle services
+bottle.service('server', Server, 'HTTP_PORT');
 
-app.set('port', port);
+// start the server
+bottle.container.server.start().then(stop => {
+    process.on('SIGTERM', () => stop());
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(morgan('combined'));
-
-if (environment === 'dev') {
-    app.use(errorHandler());
-}
-
-routes(app);
-
-http.createServer(app).listen(app.get('port'), () => {
-    console.log(`Server started on port ${app.get('port')} for ${environment} environment.`);
+    console.log('such http very traffic');
 });

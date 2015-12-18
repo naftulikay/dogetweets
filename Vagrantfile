@@ -13,6 +13,8 @@ Vagrant.configure(2) do |config|
     rsync__args: ["-avz", "--delete", "--filter", ":- .gitignore", "--copy-links"],
     rsync__exclude: [".git", ".vagrant", "node_modules"]
 
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "vagrant.yml"
   end
