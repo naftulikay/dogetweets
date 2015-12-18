@@ -21,6 +21,7 @@
         "body-parser": "1.14.1",
         "express": "4.x",
         "errorhandler": "1.4.2",
+        "lodash": "3.10.1",
         "method-override": "2.3.5",
         "morgan": "^1.6.1"
     },
