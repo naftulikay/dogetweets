@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="dogeApp">
     <head>
+        <meta charset="utf-8">
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
         <link type="text/css" rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <div id="tweets-container" ng-app="dogeApp">
-
+        <div id="tweets-container" ng-controller="TweetController">
+            <h1 class="notouchy">doge tweets</h1>
+            <div class="doge-tweet" ng-repeat="tweet in tweets">
+                <p ng-repeat="media in tweet.entities.media">
+                    <img class="doge-image" src="{{ media.media_url_https }}"/>
+                </p>
+                <p class="doge-tweet-text">{{ tweet.text }}</p>
+                <div class="doge-tweet-footer">
+                    <p>
+                        <a class="tweet-author-link" href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                        ★
+                        <a class="tweet-posted-link" href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">very click</a>
+                        ★
+                        <span class="tweet-retweets">{{ tweet.retweet_count }} such</span>
+                        ★
+                        <span class="tweet-likes">{{ tweet.favorite_count }} wows</span>
+                   </p>
+                </div>
+            </div>
         </div>
         <!-- scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        <script src="js/doge.js"></script>
-        <script>window.twttr = (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-          if (d.getElementById(id)) return t;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://platform.twitter.com/widgets.js";
-          fjs.parentNode.insertBefore(js, fjs);
-
-          t._e = [];
-          t.ready = function(f) {
-            t._e.push(f);
-          };
-
-          return t;
-        }(document, "script", "twitter-wjs"));</script>
-        <script>
-            twttr.ready(function() {
-                twttr.widgets.createTweet('676788470124122116', document.getElementById('tweets-container'));
-            });
-        </script>
+        <script src="/bower/angular/angular.min.js"></script>
+        <script src="/bower/angular-animate/angular-animate.min.js"></script>
+        <script src="/bower/angular-resource/angular-resource.min.js"></script>
+        <script src="/js/doge.js"></script>
     </body>
 </html>

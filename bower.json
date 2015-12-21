@@ -1,0 +1,22 @@
+{
+    "name": "dogetweets",
+    "description": "Proxy service for #dogetweets.",
+    "license": "MIT",
+    "moduleType": [
+        "es6"
+    ],
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "app",
+        "spec"
+    ],
+    "dependencies": {
+        "angular": "1.4.x",
+        "angular-animate": "1.4.x",
+        "angular-resource": "1.4.x",
+        "angular-route": "1.4.x"
+    }
+}

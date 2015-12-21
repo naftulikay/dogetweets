@@ -65,7 +65,7 @@ export default (HTTP_PORT, NODE_ENV, TWITTER_API_KEY, TWITTER_API_SECRET, redis)
                 }
             }, (error, response, body) => {
                 if (!error) {
-                    resp.status(200).json(body);
+                    resp.status(200).json(JSON.parse(body));
                 }
             });
         });

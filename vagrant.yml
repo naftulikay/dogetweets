@@ -11,7 +11,10 @@
        - name: install nodejs
          apt: name=nodejs state=present
        - name: install build tools
-         apt: name=build-essential state=present
+         apt: name={{ item }} state=present
+         with_items:
+             - build-essential
+             - git
        - name: npm install
          command: npm install
          args:
