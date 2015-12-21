@@ -7,7 +7,7 @@
     "scripts": {
         "start": "node index.js",
         "test": "babel-node spec/run-tests.js",
-        "test-all": "nsp check && npm-check-updates && npm test && eslint .",
+        "test-all": "nsp check && npm-check-updates && npm test && eslint app spec",
         "lint": "eslint ."
     },
     "babel": {

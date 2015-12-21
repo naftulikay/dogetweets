@@ -20,7 +20,7 @@ const configuration = mergeConfiguration(process.env, {
 // define configuration options in bottle
 _.forEach(configuration, (value, key) => bottle.value(key, value));
 
-winston.level = configuration.NODE_ENV == 'dev' ? 'debug' : 'warn';
+winston.level = configuration.NODE_ENV === 'dev' ? 'debug' : 'warn';
 
 // define bottle services
 bottle.service('redis', Redis);
