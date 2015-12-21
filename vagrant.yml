@@ -6,6 +6,8 @@
          apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
        - name: install nodesource repo
          apt_repository: repo='deb https://deb.nodesource.com/node_5.x trusty main' state=present
+       - name: install redis
+         apt: name=redis-server state=present
        - name: install nodejs
          apt: name=nodejs state=present
        - name: install build tools
@@ -16,3 +18,5 @@
              chdir: /vagrant
              creates: /vagrant/node_modules
          sudo: no
+       - name: start redis
+         service: name=redis-server state=started enabled=yes

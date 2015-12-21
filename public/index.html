@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link type="text/css" rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <div id="tweets-container"></div>
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <div id="tweets-container" ng-app="dogeApp">
+
+        </div>
+        <!-- scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="js/doge.js"></script>
         <script>window.twttr = (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0],
             t = window.twttr || {};
