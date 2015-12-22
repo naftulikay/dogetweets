@@ -7,8 +7,12 @@
         <title>doge tweets</title>
     </head>
     <body>
+        <div id="background-fade"></div>
         <div id="tweets-container" ng-controller="TweetController">
-            <h1 class="notouchy">doge tweets</h1>
+            <div class="doge-header">
+                <img class="logo" src="/img/logo.png"/>
+                <h1 class="notouchy">doge tweets</h1>
+            </div>
             <div class="doge-tweet" ng-repeat="tweet in tweets">
                 <p ng-repeat="media in tweet.entities.media">
                     <img class="doge-image" src="{{ media.media_url_https }}"/>

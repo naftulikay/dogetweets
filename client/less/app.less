@@ -6,14 +6,32 @@
 }
 
 #tweets-container {
-    margin-top: 48px;
+    margin-top: 12px;
     margin-left: auto;
     margin-right: auto;
     width: 640px;
+}
+
+.doge-header {
+    width: 432px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .logo {
+        width: 128px;
+        height: 128px;
+        margin-bottom: -48px;
+        margin-right: -12px;
+        margin-left: -20px;
+        z-index: 1000;
+        position: relative;
+    }
 
     h1 {
-        text-align: center;
-        font-size: 48px;
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 56px;
         text-shadow: 0 1px 3px #000000;
         color: @itemBgColor;
     }
@@ -29,6 +47,18 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#background-fade {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10000;
+
+    background-color: #000000;
+    opacity: 0.45;
 }
 
 .doge-tweet {
@@ -96,4 +126,5 @@ body {
 
 .notouchy {
     .user-select(none);
+    cursor: default;
 }
